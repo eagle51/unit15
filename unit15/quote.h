@@ -15,6 +15,10 @@ public:
 	{
 		return n*price;
 	}
+	virtual void debug(void) const
+	{
+		std::cout << isbn() << " " << "price" << price << std::endl;
+	}
 	virtual ~Quote() = default;		//对析构函数进行动态绑定
 private:
 	std::string bookNo;
@@ -32,6 +36,25 @@ public:
 private:
 	std::size_t min_qty = 0;
 	double discount = 0.0;
+};
+
+class Limited_quote : public Quote {
+public:
+	double net_price(std::size_t cnt) const override
+	{
+		if (cnt <= min_qty)
+			return cnt * (1 - discount)*price;
+		else
+			return min_qty * (1 - discount) * price + (cnt - min_qty) * price;
+	}
+	void debug(void) const override
+	{
+		Quote::debug();
+		std::cout << "min_qty " << min_qty << " discount " << discount << std::endl;
+	}
+private:
+	size_t min_qty;
+	double discount;
 };
 
 double bulk_quote::net_price(std::size_t cnt) const
@@ -52,4 +75,14 @@ double print_total(std::ostream &os,
 		<< " # sold: " << n << " total due: " << ret << std::endl;
 	return ret;
 }
+
+class Disc_quote : public Quote {
+	Disc_quote() = default;
+	Disc_quote(const std::string &book,double p,std::size_t qty,double disc) :
+		Quote(book,p),quantity(qty),discount(disc){ }
+	double net_price(std::size_t) const = 0;
+protected:
+	std::size_t quantity;
+	double discount;
+};
 #endif // !QUOTE_H
