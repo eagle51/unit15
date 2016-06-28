@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test15_20.cpp" />
+    <ClInclude Include="figure.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0295708D-ED81-4386-AD46-F9F372DC201B}</ProjectGuid>
