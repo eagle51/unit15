@@ -2,11 +2,26 @@
 #define QUOTE_H
 #include <iostream>
 #include <string>
+using namespace std;
 class Quote {
 public:
 	Quote() = default;
 	Quote(const std::string &book, double sales_price) :
 		bookNo(book), price(sales_price) {}
+	/*Quote(const Quote &q) { bookNo = q.bookNo;price = q.price; }*/
+
+	//Quote &operator=(const Quote &rhs)
+	//{
+	//	bookNo = rhs.bookNo;
+	//	price = rhs.price;
+	//	return *this;
+	//}
+
+	//该虚函数返回当前对象的一份动态分配的拷贝
+	//这些成员使用的引用限定符参见13.6.3节（第483页）
+	virtual Quote* clone() const & { return new Quote(*this); }
+	virtual Quote* clone() && {return new Quote(std::move(*this));}
+
 	std::string isbn() const { return bookNo; }
 
 	//返回给定数量的书籍的销售总额
@@ -31,6 +46,10 @@ public:
 	bulk_quote() = default;
 	bulk_quote(const std::string &book, double p, std::size_t qty, double disc):
 		Quote(book,p),min_qty(qty),discount(disc){}
+
+	bulk_quote* clone() const & { return new bulk_quote(*this); }
+	bulk_quote* clone() && {return new bulk_quote(std::move(*this));}
+
 	//覆盖基类的函数版本以实现基于大量购买的折扣政策
 	double net_price(std::size_t)const override;
 private:
