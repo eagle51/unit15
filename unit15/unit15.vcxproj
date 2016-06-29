@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test15_27.cpp" />
+    <ClCompile Include="test15_28.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="quote.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0295708D-ED81-4386-AD46-F9F372DC201B}</ProjectGuid>
