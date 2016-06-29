@@ -36,7 +36,7 @@ public:
 	virtual double perimeter();
 };
 
-class Sphere : public Figure_3D {\
+class Sphere : public Figure_3D {
 public:
 	Sphere(double, double, double);
 	virtual double cubage();
@@ -47,6 +47,5 @@ public:
 	virtual double cubage();
 };
 #endif // !FIGURE_H
-
 //2016年6月28日16:44:52
 //实验室
