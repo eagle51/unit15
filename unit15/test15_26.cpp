@@ -77,12 +77,14 @@ ostream &operator<<(ostream &os, Bulk_quote &bq)
 
 int main(int argc, char *argv[])
 {
-	Quote base("C++ Primer", 128.0);
 	Bulk_quote bulk("Core Python Programming", 89, 5, 0.19);
+	Quote base("C++ Primer", 128.0);
+
 	cout << base << endl;
 	cout << bulk << endl;
 	//system("pause");
 	return 0;
 }
+//析构顺序和构造顺序正好相反，构造派生类之前会首先构造基类
 //2016年6月29日14:44:33
 //实验室
