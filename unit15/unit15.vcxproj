@@ -19,11 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="basket.h" />
-    <ClInclude Include="quote.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="test15_30.cpp" />
+    <ClCompile Include="test16_6.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0295708D-ED81-4386-AD46-F9F372DC201B}</ProjectGuid>

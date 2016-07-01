@@ -15,15 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="basket.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="quote.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="test15_30.cpp">
+    <ClCompile Include="test16_6.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
